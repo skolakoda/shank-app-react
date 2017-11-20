@@ -3,18 +3,6 @@ import Table from './Table';
 import './style.css';
 
 export default class TableWrapper extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      activeTable: -1
-    }
-    this.setActiveTable = this.setActiveTable.bind(this)
-  }
-
-  setActiveTable(tableNum) {
-    const activeTable = (this.state.activeTable == tableNum) ? -1 : tableNum
-    this.setState({activeTable})
-  }
 
   render() {
     let tables = []
@@ -24,8 +12,8 @@ export default class TableWrapper extends React.Component {
           key={i}
           tableNumber={i}
           openMenu={this.props.openMenu}
-          setActiveTable={this.setActiveTable}
-          isActive={this.state.activeTable == i}
+          setActiveTable={this.props.setActiveTable}
+          isActive={this.props.activeTable == i}
         />
       )
     }

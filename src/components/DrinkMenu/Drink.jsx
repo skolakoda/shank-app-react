@@ -1,22 +1,25 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
-export default class Drink extends React.Component {
-  constructor() {
-    super()
-    this.handleClick = this.handleClick.bind(this)
+const Drink = props => {
+  const handleClick = () => {
+    props.dodajPice(props.naziv, props.cena)
   }
 
-  handleClick() {
-    this.props.dodajPice(this.props.naziv, this.props.cena)
-  }
-
-  render() {
-    return (
-      <p className="drink" onClick={this.handleClick}>
-        <img src={this.props.slika}/>
-        <span>{this.props.naziv} </span>
-        <span>{this.props.cena}</span>
-      </p>
-    )
-  }
+  return (
+    <p className="drink" onClick={handleClick}>
+      <img src={props.slika}/>
+      <span>{props.naziv} </span>
+      <span>{props.cena}</span>
+    </p>
+  )
 }
+
+Drink.propTypes = {
+  naziv: PropTypes.string.isRequired,
+  cena: PropTypes.number.isRequired,
+  slika: PropTypes.string.isRequired,
+  dodajPice: PropTypes.func.isRequired
+}
+
+export default Drink

@@ -5,10 +5,11 @@
 }
 
 .table {
-    width: 200px;
-    height: 200px;
     background: brown;
+    cursor: pointer;
+    height: 200px;
     text-align: center;
+    width: 200px;
 }
 
 .broj-stola {

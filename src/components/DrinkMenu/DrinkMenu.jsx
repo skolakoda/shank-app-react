@@ -1,13 +1,13 @@
 import React from 'react';
-import {Drink} from './Drink.jsx'
+import Drink from './Drink.jsx'
 import pica from '../../../podaci/pica.json'
 import './style.css';
 
-export class DrinkMenu extends React.Component {
+export default class DrinkMenu extends React.Component {
 
   render() {
     const pripremljenaPica = pica.map((pice, i) =>
-      <Drink key={i} naziv={pice.naziv} cena={pice.cena} slika={pice.slika}/>
+      <Drink key={i} sifra={pice.sifra} naziv={pice.naziv} cena={pice.cena} slika={pice.slika} dodajPice={this.props.dodajPice} />
     )
 
     return (

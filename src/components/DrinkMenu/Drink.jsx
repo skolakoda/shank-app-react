@@ -1,21 +1,22 @@
 import React from 'react';
 
-export class Drink extends React.Component{
-	constructor() {
-		super()
-		this.addDrink = this.addDrink.bind(this)
-	}
-	
-	addDrink() {
-		console.log(this.props.naziv)
-	}
+export default class Drink extends React.Component {
+  constructor() {
+    super()
+    this.handleClick = this.handleClick.bind(this)
+  }
 
-	render(){
-		return(
-			<p className="drink" onClick={this.addDrink}>
-				<img src={this.props.slika}/>
-				<span>{this.props.naziv}</span> <span>{this.props.cena}</span>
-			</p>
-		)
-	}
+  handleClick() {
+    this.props.dodajPice(this.props.naziv, this.props.cena)
+  }
+
+  render() {
+    return (
+      <p className="drink" onClick={this.handleClick}>
+        <img src={this.props.slika}/>
+        <span>{this.props.naziv}</span>
+        <span>{this.props.cena}</span>
+      </p>
+    )
+  }
 }

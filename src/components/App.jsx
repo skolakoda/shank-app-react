@@ -15,12 +15,12 @@ export default class App extends React.Component {
     this.state = {
       meniOtvoren: false
     }
-    this.otvoriMeni = this.otvoriMeni.bind(this)
+    this.openMenu = this.openMenu.bind(this)
   }
 
-  otvoriMeni(brojStola, aktivan) {
-    // const radim = aktivan ? "Otvaram" : "Zatvaram"
-    // console.log(`${radim} narudžbinu za sto broj ${brojStola}`)
+  openMenu(tableNumber, isActive) {
+    // const radim = isActive ? "Otvaram" : "Zatvaram"
+    // console.log(`${radim} narudžbinu za sto broj ${tableNumber}`)
     this.setState({meniOtvoren: !this.state.meniOtvoren})
   }
 
@@ -32,7 +32,7 @@ export default class App extends React.Component {
     return (
       <div>
         <Header/>
-        <TableWrapper brojStolova="7" otvoriMeni={this.otvoriMeni} />
+        <TableWrapper brojStolova="7" openMenu={this.openMenu} />
         <DrinkMenu otvoren={this.state.meniOtvoren} dodajPice={this.dodajPice} />
       </div>
     )

@@ -14,7 +14,7 @@ export default class Drink extends React.Component {
     return (
       <p className="drink" onClick={this.handleClick}>
         <img src={this.props.slika}/>
-        <span>{this.props.naziv}</span>
+        <span>{this.props.naziv} </span>
         <span>{this.props.cena}</span>
       </p>
     )

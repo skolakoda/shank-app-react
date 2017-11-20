@@ -6,32 +6,32 @@ export default class TableWrapper extends React.Component {
   constructor() {
     super()
     this.state = {
-      aktivniSto: -1
+      activeTable: -1
     }
-    this.postaviAktivni = this.postaviAktivni.bind(this)
+    this.setActiveTable = this.setActiveTable.bind(this)
   }
 
-  postaviAktivni(brojStola) {
-    const aktivniSto = (this.state.aktivniSto == brojStola) ? -1 : brojStola
-    this.setState({aktivniSto})
+  setActiveTable(tableNum) {
+    const activeTable = (this.state.activeTable == tableNum) ? -1 : tableNum
+    this.setState({activeTable})
   }
 
   render() {
-    let nizStolova = []
+    let tables = []
     for (let i=1; i <= this.props.brojStolova; i++) {
-      nizStolova.push(
+      tables.push(
         <Table
           key={i}
-          brojStola={i}
-          otvoriMeni={this.props.otvoriMeni}
-          postaviAktivni={this.postaviAktivni}
-          aktivan={this.state.aktivniSto == i}
+          tableNumber={i}
+          openMenu={this.props.openMenu}
+          setActiveTable={this.setActiveTable}
+          isActive={this.state.activeTable == i}
         />
       )
     }
     return (
       <div className="table-wrapper">
-        {nizStolova}
+        {tables}
       </div>
     )
   }

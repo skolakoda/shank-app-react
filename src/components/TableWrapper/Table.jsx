@@ -1,22 +1,25 @@
-import React from 'react';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-export default class Table extends React.Component {
-  constructor() {
-    super()
-    this.handleClick = this.handleClick.bind(this)
+const Table = props => {
+  const handleClick = e => {
+    props.setActiveTable(props.tableNumber)
+    props.openMenu(props.tableNumber)
   }
 
-  handleClick() {
-    this.props.postaviAktivni(this.props.brojStola)
-    this.props.otvoriMeni(this.props.brojStola)
-  }
-
-  render() {
-    return (
-      <div className="table" onClick={this.handleClick}>
-        <div className="broj-stola">{this.props.brojStola}</div>
-        <div className="">{this.props.aktivan && "aktivan"}</div>
-      </div>
-    )
-  }
+  return (
+    <div className="table" onClick={handleClick}>
+      <div className="broj-stola">{props.tableNumber}</div>
+      <div>{props.isActive && "aktivan"}</div>
+    </div>
+  )
 }
+
+Table.propTypes = {
+  isActive: PropTypes.bool.isRequired,
+  tableNumber: PropTypes.number.isRequired,
+  setActiveTable: PropTypes.func.isRequired,
+  openMenu: PropTypes.func.isRequired,
+}
+
+export default Table

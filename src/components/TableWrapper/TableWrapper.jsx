@@ -12,8 +12,8 @@ export default class TableWrapper extends React.Component {
           key={i}
           tableNumber={i}
           openMenu={this.props.openMenu}
-          setActiveTable={this.props.setActiveTable}
           isActive={this.props.activeTable == i}
+          order={this.props.orders[i]}
         />
       )
     }

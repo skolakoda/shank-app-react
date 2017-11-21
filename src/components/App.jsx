@@ -3,16 +3,14 @@ import Header from './Header';
 import TableWrapper from './TableWrapper/TableWrapper';
 import DrinkMenu from './DrinkMenu/DrinkMenu';
 
-// klikom na pice dodati pice na aktivni sto
-  // activeOrder preko propsa spustati do aktivnog stola
-
 export default class App extends React.Component {
   constructor() {
     super()
     this.state = {
+      numOfTables: 7,
       isMenuOpen: false,
       activeTable: -1,
-      activeOrder: {}
+      orders: {}
     }
     this.openMenu = this.openMenu.bind(this)
     this.dodajPice = this.dodajPice.bind(this)
@@ -27,19 +25,27 @@ export default class App extends React.Component {
   }
 
   dodajPice(naziv, cena) {
-    const activeOrder = this.state.activeOrder
-    activeOrder[naziv] = naziv in activeOrder ? activeOrder[naziv] + 1 : 0
-    this.setState({activeOrder}, () => {
-      console.log(this.state)
-    })
+    const order = this.state.orders[this.state.activeTable] || {}
+    order[naziv] = naziv in order ? order[naziv] + 1 : 1
+    const orders = this.state.orders
+    orders[this.state.activeTable] = order
+    this.setState({orders})
   }
 
   render() {
     return (
       <div>
         <Header/>
-        <TableWrapper brojStolova="7" openMenu={this.openMenu} activeTable={this.state.activeTable} />
-        <DrinkMenu otvoren={this.state.isMenuOpen} dodajPice={this.dodajPice} />
+        <TableWrapper
+          brojStolova={this.state.numOfTables}
+          openMenu={this.openMenu}
+          activeTable={this.state.activeTable}
+          orders={this.state.orders}
+        />
+        <DrinkMenu
+          otvoren={this.state.isMenuOpen}
+          dodajPice={this.dodajPice}
+        />
       </div>
     )
   }

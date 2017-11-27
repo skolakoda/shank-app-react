@@ -7,7 +7,14 @@ export default class DrinkMenu extends React.Component {
 
   render() {
     const pripremljenaPica = pica.map((pice, i) =>
-      <Drink key={i} sifra={pice.sifra} naziv={pice.naziv} cena={pice.cena} slika={pice.slika} dodajPice={this.props.dodajPice} />
+      <Drink 
+        key={i} 
+        sifra={pice.sifra} 
+        naziv={pice.naziv} 
+        cena={pice.cena} 
+        slika={pice.slika} 
+        dodajPice={this.props.dodajPice} 
+      />
     )
 
     return (

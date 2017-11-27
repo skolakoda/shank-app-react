@@ -7,7 +7,7 @@ export default class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      numOfTables: 7,
+      numOfTables: 6,
       isMenuOpen: false,
       activeTable: -1,
       orders: {}

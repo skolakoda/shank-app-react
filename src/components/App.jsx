@@ -35,7 +35,8 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <Header/>
+        <Header 
+          aktivanSto={this.state.activeTable} />
         <TableWrapper
           brojStolova={this.state.numOfTables}
           openMenu={this.openMenu}

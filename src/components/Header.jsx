@@ -1,6 +1,4 @@
 import React from 'react';
-import TableWrapper from './TableWrapper/TableWrapper';
-import {Element} from 'react-stylesheet'
 
 
 

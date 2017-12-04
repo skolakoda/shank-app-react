@@ -18,7 +18,7 @@ export default class DrinkMenu extends React.Component {
     )
 
     return (
-      <div className={`drink-menu ${!this.props.otvoren && 'hide'}`}>
+      <div className={`drink-menu ${this.props.otvoren ? '' : 'hide'}`}>
         {pripremljenaPica}
       </div>
     )

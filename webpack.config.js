@@ -16,7 +16,9 @@ module.exports = {
     loaders: [
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ },
-      { test: /\.css$/, loader: "style-loader!css-loader" }
+      { test: /\.css$/, loader: "style-loader!css-loader" },
+      { enforce: "pre", test: /\.js$/, loader: "eslint-loader", exclude: /node_modules/, options: { emitWarning: true } },
+      { enforce: "pre", test: /\.jsx$/, loader: "eslint-loader", exclude: /node_modules/, options: { emitWarning: true } }
     ]
   },
   resolve: {
